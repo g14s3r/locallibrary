@@ -8,14 +8,12 @@
     <div style="margin-left: 20px; margin-top: 20px">
         <h4>Books</h4>
 
-        {% for thebook in author.book_set.all %}
-        <hr>
-
-            <p><strong><a href="#">{{ thebook.title }}</a></strong></p>
-            <p>{{ thebook.summary }}</p>
-
+        <dl>
+        {% for book in author.book_set.all %}
+            <dt><a href="{% url 'book-detail' book.pk %}">{{ book }}</a></dt>
+            <dd>{{ book.summary }}</dd>
         {% endfor %}
-
+        </dl>
 
     </div>
 {% endblock %}
