@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>Delete book</h2>
+    <p>Are you sure want to delete this book - ({{ book }})?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" action="" value="Yes, delete." />
+    </form>
+{% endblock %}
