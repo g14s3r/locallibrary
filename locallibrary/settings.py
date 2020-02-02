@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddliware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware', # Управление сессиями между запросами
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -117,16 +117,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-# Абсолютный путь к каталогу, где collectstatic будет собирать статические файлы для развертывания
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# URL-адрес, используемый при обращении к статическим файлам (откуда они будут обслуживаться)
-STATIC_URL = '/static/'
-
 # Перенаправить на домашний URL после входа в систему (по умолчанию перенаправляет на / account / profile /)
 LOGIN_REDIRECT_URL = '/'
 
@@ -136,6 +126,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+# Абсолютный путь к каталогу, где collectstatic будет собирать статические файлы для развертывания
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# URL-адрес, используемый при обращении к статическим файлам (откуда они будут обслуживаться)
+STATIC_URL = '/static/'
 
 # Упрощенная статическая подача файлов
 # https://warehouse.python.org/project/whitenoise/
